@@ -1,0 +1,9 @@
+{% extends 'perportfolio/base.html' %}
+
+{% block content %}
+<h1 class="mt-2 text-center">{{ dblog.title }}</h1>
+
+<h2>{{ dblog.date|date:'F jS Y'}}</h2>
+
+{{ dblog.description|safe }}
+{% endblock %}

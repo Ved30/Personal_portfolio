@@ -1,0 +1,50 @@
+{% extends 'perportfolio/base.html' %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" src="style.css">
+
+<div class="text-center">
+<img src="{% static 'perportfolio/IMG_20180122_105945_Bokeh__01.jpg' %}" class="rounded  img-thumbnail" height="400" width="400">
+<p class="display-4 font-weight-bold">Welcome to my portfolio</p>
+</div>  
+<br>
+<h2 class="mt-5">Projects and Certifications:</h2>
+<br>
+<hr>
+<div class="row">
+{% for proj in proj %}
+<div class="col-lg-4 col-md-6">
+{% if  proj.url  %}
+<a href="{{ proj.url }}">
+<img src="{{ proj.image.url }}" class="rounded img-thumbnail img-fluid"></img>
+{% endif %}
+</a>
+<h3>{{ proj.title }}</h3>
+<p class="text-wrap">{{proj.description}}</p>
+</div>
+{% endfor %}
+</div>
+<hr>
+{% for blog in blogs %}
+<a href="{% url 'blog:detail' blog.id %}"><h2 class="mt-5 text-center"> {{ blog.title }}</h2></a>
+<p class="text-center">{{ blog.date|date:'M d Y'|upper  }}</p>
+<p class="text-center">{{ blog.description|striptags|truncatechars:100 }}</p>
+
+
+{% endfor %}
+<hr>
+<h2 class="mt-5"> Skills: </h2>
+{% for ski in skill %}
+<h3 class="d-inline" style="padding-left: 20px;padding-right: 20px;">{{ ski.title }}</h3>
+{% endfor %}
+
+<hr>
+<h2 class="mt-5">Experience:</h2>
+{% for exp in ep %}
+<h3>{{ exp.title }}</h3>
+<h4>{{ exp.duration }}</h4>
+<p class="text-wrap">{{ exp.description }}</p>
+{% endfor %}
+{% endblock %}
