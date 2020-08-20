@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = 'np7h_6!bwb#@av4#)v=wi)0(z6xf(g*og^shil63-sqo73*3vi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['infinite-temple-24276.herokuapp.com']
 
